@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecureChatProjekt")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da8dab5bfa1e405a6b7958876a7d09632a3a04b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b5711bdaa8cc45e63ff1cfebe6f934e871ca788")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecureChatProjekt")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecureChatProjekt")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
