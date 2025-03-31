@@ -3,28 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt.shared\\models\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|solutionrelative:securechatprojekt.shared\\models\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt.shared\\models\\keyexchangedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|solutionrelative:securechatprojekt.shared\\models\\keyexchangedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\pages\\chat.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\pages\\chat.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\cryptographyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\cryptographyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|solutionrelative:securechatprojekt\\securechatprojekt.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt.shared\\models\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|solutionrelative:securechatprojekt.shared\\models\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C87C30A6-2A1F-44FA-B3EC-348DF80DD1DD}|SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj|solutionrelative:securechatprojekt\\securechatprojekt\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt.shared\\models\\keyexchangedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4391206F-46D8-4CBD-A2B0-B8F3B3A881A2}|SecureChatProjekt.Shared\\SecureChatProjekt.Shared.csproj|solutionrelative:securechatprojekt.shared\\models\\keyexchangedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB2EDC02-EBE8-4BEF-A7FC-AADCF15DF6BD}|SecureChatProjekt\\SecureChatProjekt.Client\\SecureChatProjekt.Client.csproj|c:\\users\\chrib\\documents\\softwareudvikling 2025\\secure chat projekt\\securechatprojekt\\securechatprojekt\\securechatprojekt.client\\wwwroot\\js\\cryptoutils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -46,11 +74,106 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:54.458Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:51.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Error.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\Pages\\Error.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:49.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\_Imports.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:45.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\Routes.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:42.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\App.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Components\\App.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:40.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Chat.razor",
+              "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Chat.razor",
+              "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Chat.razor",
+              "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Chat.razor",
+              "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Chat.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T01:10:36.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MessageDto.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt.Shared\\Models\\MessageDto.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt.Shared\\Models\\MessageDto.cs",
@@ -63,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "KeyExchangeDto.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt.Shared\\Models\\KeyExchangeDto.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt.Shared\\Models\\KeyExchangeDto.cs",
@@ -71,12 +194,11 @@
               "RelativeToolTip": "SecureChatProjekt.Shared\\Models\\KeyExchangeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T00:50:59.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T00:50:59.563Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\Program.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt.Client\\Program.cs",
@@ -89,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "CryptographyService.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\CryptographyService.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt.Client\\CryptographyService.cs",
@@ -102,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Counter.razor",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt.Client\\Pages\\Counter.razor",
@@ -115,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\Program.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\Program.cs",
@@ -123,12 +245,11 @@
               "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T00:48:47.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T00:48:47.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "MessageController.cs",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\MessageController.cs",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\MessageController.cs",
@@ -141,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "cryptoUtils.js",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\js\\cryptoUtils.js",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\js\\cryptoUtils.js",
@@ -149,25 +270,19 @@
               "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\js\\cryptoUtils.js",
               "ViewState": "AgIAAH4AAAAAAAAAAAAAAJgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-31T00:45:25.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T00:45:25.979Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SecureChatProjekt",
+              "DocumentIndex": 15,
+              "Title": "SecureChatProjekt.csproj",
               "DocumentMoniker": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj",
               "RelativeDocumentMoniker": "SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj",
               "ToolTip": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj",
               "RelativeToolTip": "SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-30T23:35:23.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "WhenOpened": "2025-03-30T23:35:23.427Z"
             }
           ]
         }
