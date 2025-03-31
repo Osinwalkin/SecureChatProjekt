@@ -1,0 +1,86 @@
+[
+  {
+    "ContainingType": "SecureChatProjekt.Controllers.MessagesController",
+    "Method": "PostMessage",
+    "RelativePath": "api/Messages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "SecureChatProjekt.Shared.Models.MessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureChatProjekt.Controllers.MessagesController",
+    "Method": "GetMessages",
+    "RelativePath": "api/Messages/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SecureChatProjekt.Shared.Models.MessageDto, SecureChatProjekt.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SecureChatProjekt.Controllers.MessagesController",
+    "Method": "PostKeyExchange",
+    "RelativePath": "api/Messages/keyexchange",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyDto",
+        "Type": "SecureChatProjekt.Shared.Models.KeyExchangeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureChatProjekt.Controllers.MessagesController",
+    "Method": "GetKeyExchange",
+    "RelativePath": "api/Messages/keyexchange/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SecureChatProjekt.Shared.Models.KeyExchangeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\obj\\Debug\\net8.0\\compressed\\parsq5flbu.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\appsettings.Development.json",
+      "PackagePath": "staticwebassets\\appsettings.Development.json"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt.Client\\wwwroot\\js\\cryptoUtils.js",
+      "PackagePath": "staticwebassets\\js\\cryptoUtils.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SecureChatProjekt.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SecureChatProjekt.Client.props",
+      "PackagePath": "build\\SecureChatProjekt.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SecureChatProjekt.Client.props",
+      "PackagePath": "buildMultiTargeting\\SecureChatProjekt.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SecureChatProjekt.Client.props",
+      "PackagePath": "buildTransitive\\SecureChatProjekt.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

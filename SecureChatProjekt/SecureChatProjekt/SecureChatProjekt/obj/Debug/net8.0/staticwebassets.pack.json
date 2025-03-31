@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SecureChatProjekt.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SecureChatProjekt.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ChriB\\Documents\\Softwareudvikling 2025\\Secure Chat Projekt\\SecureChatProjekt\\SecureChatProjekt\\SecureChatProjekt\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SecureChatProjekt.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SecureChatProjekt.props",
+      "PackagePath": "build\\SecureChatProjekt.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SecureChatProjekt.props",
+      "PackagePath": "buildMultiTargeting\\SecureChatProjekt.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SecureChatProjekt.props",
+      "PackagePath": "buildTransitive\\SecureChatProjekt.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

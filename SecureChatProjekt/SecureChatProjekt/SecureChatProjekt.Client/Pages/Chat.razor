@@ -1,0 +1,542 @@
+﻿@page "/chat"
+@inject CryptographyService Crypto
+@inject HttpClient Http
+@using System.Security.Cryptography
+@using Microsoft.JSInterop
+@using SecureChatProjekt.Shared.Models
+@using System.Timers
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender: false))
+@implements IDisposable
+
+<h3>Secure Chat</h3>
+
+<!-- User Identification -->
+<div class="row mb-3">
+    <div class="col">
+        <label for="myUserId">My User ID:</label>
+        <input type="text" id="myUserId" class="form-control form-control-sm" @bind="myUserId" @bind:event="oninput" disabled="@sessionEstablished" />
+    </div>
+    <div class="col">
+        <label for="recipientId">Recipient User ID:</label>
+        <input type="text" id="recipientId" class="form-control form-control-sm" @bind="recipientUserId" disabled="@sessionEstablished" />
+    </div>
+</div>
+<hr />
+
+<!-- Key Management Area -->
+<div>
+    <h4>Keys & Session (JWK Format)</h4>
+    <div>
+        <strong>My Public Key (JWK):</strong>
+        <textarea class="form-control" rows="4" readonly>@myPublicKeyDisplay</textarea>
+    </div>
+    <hr />
+    <div>
+        <label for="theirPublicKey"><strong>Their Public Key (Paste JWK JSON String):</strong></label>
+        <textarea id="theirPublicKey" class="form-control" rows="4" @bind="theirPublicKeyInput"></textarea>
+        <button class="btn btn-secondary btn-sm mt-1" @onclick="SetTheirPublicKey">Set Their Key</button>
+    </div>
+    <hr />
+    <!-- AES Key Exchange -->
+    <div>
+        <button class="btn btn-info btn-sm" @onclick="InitiateSession"
+        disabled="@(sharedAesKey != null || string.IsNullOrWhiteSpace(theirPublicKeyJwk) || string.IsNullOrWhiteSpace(myUserId) || string.IsNullOrWhiteSpace(recipientUserId))">
+            Initiate Session (Generate & Send AES Key)
+        </button>
+        <p class="mt-2"><small><em>Click this if you are starting the chat. It will generate a shared key and encrypt it with 'Their Public Key'. The Encrypted AES Key should then be sent to the other user automatically if it works.</em></small></p>
+    </div>
+    <div class="mt-3">
+        <label>Check for Incoming Session:</label>
+        <button class="btn btn-secondary btn-sm mt-1" @onclick="CheckForKeyExchange" disabled="@(sessionEstablished || string.IsNullOrWhiteSpace(myUserId))">
+            Check Now
+        </button>
+        <p><small><em>Should check if the other user has sent you the encrypted session key.</em></small></p>
+    </div>
+    <hr />
+    <div>
+        <strong>Shared Secret Status:</strong>
+        <p style="word-break: break-all;">@sharedSecretDisplay</p>
+    </div>
+</div>
+<hr />
+
+<!-- Chat Display Area -->
+<div>
+    <h4>Messages</h4>
+    <div style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; margin-bottom: 10px; padding: 5px;" id="messageArea">
+        @foreach (var msg in messages)
+        {
+            <p>@msg</p>
+        }
+    </div>
+</div>
+
+
+<!-- Message Input Area -->
+<div>
+    <textarea class="form-control" rows="3" @bind="newMessage"
+    placeholder="@(sharedAesKey == null ? "Establish session first..." : "Type your secure message here...")"
+    disabled="@(sharedAesKey == null)"></textarea>
+
+    <button class="btn btn-primary mt-2" @onclick="SendMessage" disabled="@(sharedAesKey == null)">Send</button>
+</div>
+
+@code {
+
+    // --- State Variables ---
+    private string _myUserIdInternal = string.Empty; 
+    private string recipientUserId = string.Empty; 
+    private bool sessionEstablished => sharedAesKey != null;
+
+    // Keys
+    private string myPublicKeyJwk = string.Empty;
+    private string myPrivateKeyJwk = string.Empty;
+    private string myPublicKeyDisplay = "Generating keys...";
+    private string theirPublicKeyInput = string.Empty;
+    private string theirPublicKeyJwk = string.Empty;
+    private byte[] sharedAesKey = null;
+    private string sharedSecretDisplay = "Not established";
+
+    // UI
+    private string newMessage = string.Empty;
+    private List<string> messages = new List<string>();
+
+    // Timers for polling
+    private System.Timers.Timer keyCheckTimer;
+    private System.Timers.Timer messageCheckTimer;
+
+    // --- Lifecycle Methods ---
+    protected override async Task OnInitializedAsync()
+    {
+        // Generate RSA keys
+        try
+        {
+            (myPublicKeyJwk, myPrivateKeyJwk) = await Crypto.GenerateRsaKeyPairAsync();
+            myPublicKeyDisplay = myPublicKeyJwk;
+            Console.WriteLine("RSA Keys (JWK) Generated via JS Interop.");
+        }
+        catch (Exception ex)
+        {
+            myPublicKeyDisplay = "Error generating keys.";
+            messages.Add($"Error generating keys: {ex.Message}");
+            Console.WriteLine($"Key Generation Error: {ex}");
+        }
+
+        // Setup timers
+        SetupKeyCheckTimer();
+        SetupMessageCheckTimer();
+    }
+
+    // --- User ID Handling ---
+    // Use property to trigger polling logic when user ID is set via binding
+    private string myUserId
+    {
+        get => _myUserIdInternal;
+        set
+        {
+            if (_myUserIdInternal != value)
+            {
+                _myUserIdInternal = value;
+                Console.WriteLine($"My User ID set to: {_myUserIdInternal}"); // Debug log
+                // Start/Stop key polling based on whether ID is set and session is active
+                if (!string.IsNullOrWhiteSpace(_myUserIdInternal) && !sessionEstablished)
+                {
+                    StartKeyCheckPolling();
+                }
+                else
+                {
+                    StopKeyCheckPolling();
+                }
+                InvokeAsync(StateHasChanged);
+            }
+        }
+    }
+
+    // --- Timers Setup ---
+    private void SetupKeyCheckTimer()
+    {
+        keyCheckTimer = new System.Timers.Timer(5000);
+        keyCheckTimer.Elapsed += async (sender, e) => await PollForKeyExchange();
+        keyCheckTimer.AutoReset = true; // Keep checking
+        keyCheckTimer.Enabled = false;
+    }
+
+    private void SetupMessageCheckTimer()
+    {
+        messageCheckTimer = new System.Timers.Timer(3000);
+        messageCheckTimer.Elapsed += async (sender, e) => await PollForMessages();
+        messageCheckTimer.AutoReset = true;
+        messageCheckTimer.Enabled = false;
+    }
+
+    private void StartKeyCheckPolling()
+    {
+        // Only start if timer exists, is not already enabled, ID is set, and session NOT established
+        if (keyCheckTimer != null && !keyCheckTimer.Enabled && !string.IsNullOrWhiteSpace(myUserId) && !sessionEstablished)
+        {
+            Console.WriteLine("Starting key check polling...");
+            keyCheckTimer.Enabled = true;
+        }
+    }
+    private void StopKeyCheckPolling()
+    {
+        if (keyCheckTimer != null && keyCheckTimer.Enabled)
+        {
+            Console.WriteLine("Stopping key check polling...");
+            keyCheckTimer.Enabled = false;
+        }
+    }
+
+    private void StartMessagePolling()
+    {
+        // Only start if timer exists, is not already enabled, and session IS established
+        if (messageCheckTimer != null && !messageCheckTimer.Enabled && sessionEstablished)
+        {
+            Console.WriteLine("Starting message polling...");
+            messageCheckTimer.Enabled = true;
+        }
+    }
+    private void StopMessagePolling()
+    {
+        if (messageCheckTimer != null && messageCheckTimer.Enabled)
+        {
+            Console.WriteLine("Stopping message polling...");
+            messageCheckTimer.Enabled = false;
+        }
+    }
+
+
+    // --- Key Exchange ---
+
+    // Store the other user's public key JWK string from input
+    private void SetTheirPublicKey()
+    {
+        if (!string.IsNullOrWhiteSpace(theirPublicKeyInput) && theirPublicKeyInput.Trim().StartsWith("{") && theirPublicKeyInput.Trim().EndsWith("}"))
+        {
+            theirPublicKeyJwk = theirPublicKeyInput;
+            messages.Add("System: Their public key (JWK) has been set.");
+            Console.WriteLine($"Their Public Key (JWK) set.");
+        }
+        else
+        {
+            messages.Add("System: Invalid Public Key format. Paste the JWK JSON string.");
+        }
+        StateHasChanged(); // Update UI if needed
+    }
+
+    // Initiate session: Generate AES key, encrypt it with their RSA public key, POST to API
+    private async Task InitiateSession()
+    {
+        if (!CanInitiateSession()) return;
+
+        try
+        {
+            // Generate a 256-bit (32 byte) AES key using C#'s RNG
+            sharedAesKey = RandomNumberGenerator.GetBytes(32);
+            Console.WriteLine($"Generated AES Key: {Crypto.ToBase64(sharedAesKey)}");
+
+            // Encrypt the AES key using their RSA public key via JS Interop
+            byte[] encryptedAesKey = await Crypto.EncryptWithRsaPublicKeyAsync(sharedAesKey, theirPublicKeyJwk);
+            string encryptedAesKeyBase64 = Crypto.ToBase64(encryptedAesKey);
+
+            // Create DTO for the API call
+            var keyDto = new KeyExchangeDto
+                {
+                    SenderId = myUserId,
+                    RecipientId = recipientUserId,
+                    EncryptedAesKeyBase64 = encryptedAesKeyBase64
+                };
+
+            messages.Add("System: Sending encrypted session key to server...");
+            await InvokeAsync(StateHasChanged); // Update UI immediately
+
+            // POST the encrypted key to the backend API
+            var response = await Http.PostAsJsonAsync("api/messages/keyexchange", keyDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                messages.Add($"System: Session key sent for {recipientUserId}. Waiting for them to retrieve it.");
+                sharedSecretDisplay = $"Established (Initiator - Key Sent). Key: {Crypto.ToBase64(sharedAesKey)}";
+                StopKeyCheckPolling();
+                StartMessagePolling();
+            }
+            else
+            {
+                messages.Add($"System: Error sending session key: {response.StatusCode} - {response.ReasonPhrase}");
+                sharedAesKey = null; // Reset on failure to allow retry
+            }
+        }
+        catch (Exception ex)
+        {
+            messages.Add($"System: Error initiating session: {ex.Message}");
+            Console.WriteLine($"Session Initiation Error: {ex}");
+            sharedAesKey = null; // Reset on failure
+            sharedSecretDisplay = "Failed to establish";
+        }
+        await InvokeAsync(StateHasChanged); // Update UI with final status
+    }
+
+    // Helper method to check pre-conditions for initiating a session
+    private bool CanInitiateSession()
+    {
+        if (string.IsNullOrWhiteSpace(myUserId)) { messages.Add("System: Please enter your User ID."); return false; }
+        if (string.IsNullOrWhiteSpace(recipientUserId)) { messages.Add("System: Please enter the Recipient User ID."); return false; }
+        if (string.IsNullOrWhiteSpace(theirPublicKeyJwk)) { messages.Add("System: Cannot initiate session. Set their public key first."); return false; }
+        if (sharedAesKey != null) { messages.Add("System: Session already established."); return false; }
+        return true;
+    }
+
+    // Method called by button to manually trigger a key check
+    private async Task CheckForKeyExchange()
+    {
+        if (string.IsNullOrWhiteSpace(myUserId)) { messages.Add("System: Please enter your User ID to check for keys."); return; }
+        if (sessionEstablished) { messages.Add("System: Session is already established."); return; }
+
+        messages.Add($"System: Manually checking for key from server for {myUserId}...");
+        await InvokeAsync(StateHasChanged);
+        await PollForKeyExchange(); // Call the polling logic directly
+    }
+
+    // Logic to poll the API for the key exchange message
+    private async Task PollForKeyExchange()
+    {
+        // Stop polling if session established while waiting for request
+        if (sessionEstablished)
+        {
+            StopKeyCheckPolling();
+            return;
+        }
+        if (string.IsNullOrWhiteSpace(myUserId))
+        { // Safety check
+            StopKeyCheckPolling();
+            return;
+        }
+
+        Console.WriteLine($"Polling for key exchange for {myUserId}..."); // Debug log
+        try
+        {
+            // GET request to the key exchange endpoint
+            var keyDto = await Http.GetFromJsonAsync<KeyExchangeDto>($"api/messages/keyexchange/{myUserId}");
+
+            // If we received a valid key DTO
+            if (keyDto != null && !string.IsNullOrWhiteSpace(keyDto.EncryptedAesKeyBase64))
+            {
+                Console.WriteLine($"Received encrypted key from {keyDto.SenderId}");
+                messages.Add($"System: Received encrypted session key from {keyDto.SenderId}. Processing...");
+                await InvokeAsync(StateHasChanged); // Show message before potentially long decrypt
+
+                // Call the method to process the received key
+                await ReceiveEncryptedAesKey(keyDto.EncryptedAesKeyBase64, keyDto.SenderId);
+            }
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            Console.WriteLine($"No key exchange message found for {myUserId}."); 
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error polling for key exchange: {ex.Message}");
+        }
+
+    }
+
+    // ReceiveEncryptedAesKey: Process the key received from polling
+    private async Task ReceiveEncryptedAesKey(string encryptedKeyBase64, string senderId) // Added senderId for context
+    {
+        if (string.IsNullOrWhiteSpace(myPrivateKeyJwk)) { messages.Add("System: Cannot process key. My keys not generated."); return; }
+        if (sharedAesKey != null) { messages.Add("System: Session already established (race condition?)."); return; } // Avoid processing twice
+
+        try
+        {
+            byte[] encryptedAesKey = Crypto.FromBase64(encryptedKeyBase64);
+            // Decrypt the AES key using my RSA private key via JS Interop
+            sharedAesKey = await Crypto.DecryptWithRsaPrivateKeyAsync(encryptedAesKey, myPrivateKeyJwk);
+
+            // Validate decrypted key length (important!)
+            if (sharedAesKey == null || sharedAesKey.Length != 32)
+            {
+                messages.Add($"System: Error: Decrypted key from {senderId} is invalid or not 256 bits.");
+                sharedAesKey = null; // Reset key
+                sharedSecretDisplay = "Failed: Invalid Decrypted Key";
+                return; // Stop processing
+            }
+
+            Console.WriteLine($"Decrypted AES Key: {Crypto.ToBase64(sharedAesKey)}");
+            sharedSecretDisplay = $"Established (Receiver from {senderId}). Key: {Crypto.ToBase64(sharedAesKey)}";
+            messages.Add("System: Received and decrypted AES key. Session established.");
+
+            StopKeyCheckPolling(); // Successfully received key, stop checking
+            StartMessagePolling(); // Start checking for messages now
+        }
+        catch (FormatException) { messages.Add("System: Error processing key (Invalid Base64 format)."); sharedAesKey = null; sharedSecretDisplay = "Failed: Invalid Format"; }
+        catch (JSException ex) { messages.Add($"System: Error processing key (Decryption failed - wrong key?): {ex.Message}"); sharedAesKey = null; sharedSecretDisplay = "Failed: Decryption Error"; Console.WriteLine($"JS Decryption Error: {ex}"); }
+        catch (Exception ex) { messages.Add($"System: Unexpected error processing key: {ex.Message}"); sharedAesKey = null; sharedSecretDisplay = "Failed: Unexpected Error"; Console.WriteLine($"Receive Key Error: {ex}"); }
+
+        await InvokeAsync(StateHasChanged); // Update UI with the final status
+    }
+
+
+    // --- Sending Messages ---
+    private async Task SendMessage()
+    {
+        if (sharedAesKey == null) { messages.Add("System: Cannot send message. Establish secure session first."); return; }
+        if (string.IsNullOrWhiteSpace(newMessage)) { messages.Add("System: Cannot send empty message."); return; }
+        if (string.IsNullOrWhiteSpace(myUserId)) { messages.Add("System: Cannot send message. My User ID not set."); return; }
+        if (string.IsNullOrWhiteSpace(recipientUserId)) { messages.Add("System: Cannot send message. Recipient User ID not set."); return; }
+
+        string messageToSend = newMessage;
+        newMessage = string.Empty; 
+
+        try
+        {
+            byte[] messageBytes = Crypto.GetBytes(messageToSend);
+
+            // Generate a unique 12-byte IV for AES-GCM
+            byte[] iv = RandomNumberGenerator.GetBytes(12);
+
+            // Encrypt using the async JS interop method
+            byte[] encryptedMessageBytes = await Crypto.EncryptWithAesGcmAsync(messageBytes, sharedAesKey, iv);
+
+            // Prepare data for sending (IV + Ciphertext) - Base64 encode
+            string ivBase64 = Crypto.ToBase64(iv);
+            string encryptedMessageBase64 = Crypto.ToBase64(encryptedMessageBytes);
+
+            // Create DTO
+            var messageDto = new MessageDto
+                {
+                    SenderId = myUserId,
+                    RecipientId = recipientUserId,
+                    IvBase64 = ivBase64,
+                    CiphertextBase64 = encryptedMessageBase64
+                };
+
+            // POST to API
+            messages.Add($"Me (Sending...): {messageToSend}");
+            await InvokeAsync(StateHasChanged); // Show user it's sending
+
+            var response = await Http.PostAsJsonAsync("api/messages", messageDto);
+
+            // Remove "Sending..." message regardless of outcome
+            var sendingMessageIndex = messages.FindIndex(m => m.StartsWith("Me (Sending...)"));
+            if (sendingMessageIndex >= 0)
+            {
+                messages.RemoveAt(sendingMessageIndex);
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Message sent successfully.");
+                messages.Add($"Me: {messageToSend}"); // Add final confirmation
+            }
+            else
+            {
+                Console.WriteLine($"Error sending message: {response.StatusCode} - {response.ReasonPhrase}");
+                messages.Add($"System: Failed to send message '{messageToSend.Substring(0, Math.Min(messageToSend.Length, 10))}...' - {response.ReasonPhrase}");
+                newMessage = messageToSend;
+            }
+        }
+        catch (Exception ex)
+        {
+            messages.Add($"System: Error encrypting/sending message: {ex.Message}");
+            Console.WriteLine($"Send Message Error: {ex}");
+            newMessage = messageToSend;
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    // --- Receiving Messages ---
+    // Method called by timer to poll for messages
+    private async Task PollForMessages()
+    {
+        if (!sessionEstablished || string.IsNullOrWhiteSpace(myUserId))
+        {
+            StopMessagePolling();
+            return;
+        }
+
+        Console.WriteLine($"Polling for messages for {myUserId}..."); // Debug log
+        try
+        {
+            // Fetch messages for my user ID
+            var receivedDtos = await Http.GetFromJsonAsync<List<MessageDto>>($"api/messages/{myUserId}");
+
+            if (receivedDtos != null && receivedDtos.Count > 0)
+            {
+                Console.WriteLine($"Received {receivedDtos.Count} new messages.");
+                bool messageAdded = false;
+                foreach (var dto in receivedDtos)
+                {
+                    // Process each message - returns true if successfully added
+                    if (await ReceiveMessage(dto))
+                    {
+                        messageAdded = true;
+                    }
+                }
+                if (messageAdded)
+                {
+                    await InvokeAsync(StateHasChanged);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error polling for messages: {ex.Message}");
+        }
+    }
+
+
+    // ReceiveMessage: Process a single message DTO received from polling
+    private async Task<bool> ReceiveMessage(MessageDto messageDto) // Return bool indicating success
+    {
+        if (sharedAesKey == null) { return false; } // Safety check
+
+        try
+        {
+            // Decode Base64 inputs
+            byte[] iv = Crypto.FromBase64(messageDto.IvBase64);
+            byte[] encryptedMessageBytes = Crypto.FromBase64(messageDto.CiphertextBase64);
+
+            // Validate IV length for GCM
+            if (iv.Length != 12)
+            {
+                messages.Add($"System: Received message from {messageDto.SenderId} with invalid IV length. Discarding.");
+                return false; // Indicate failure
+            }
+
+            // Decrypt using async JS interop method (automatically verifies integrity)
+            byte[] decryptedBytes = await Crypto.DecryptWithAesGcmAsync(encryptedMessageBytes, sharedAesKey, iv);
+            Console.WriteLine($"AES-GCM Decryption Successful for message from {messageDto.SenderId}.");
+
+            // Convert decrypted bytes back to string
+            string receivedMessage = Crypto.GetString(decryptedBytes);
+
+            // Display message with sender ID
+            messages.Add($"{messageDto.SenderId}: {receivedMessage}");
+            return true; // Indicate success
+        }
+        catch (FormatException ex) { messages.Add($"System: Error processing received message from {messageDto.SenderId} (Invalid Base64): {ex.Message}"); }
+        catch (JSException ex) // Decryption errors from JS usually mean integrity failure
+        {
+            messages.Add($"System: !! Decryption failed for message from {messageDto.SenderId} (Tampered? Wrong Key/IV?): {ex.Message} !!");
+            Console.WriteLine($"JS Decryption Error (Integrity Failure Likely): {ex}");
+        }
+        catch (Exception ex) { messages.Add($"System: Unexpected error processing received message from {messageDto.SenderId}: {ex.Message}"); Console.WriteLine($"Receive Error: {ex}"); }
+
+        return false;
+    }
+
+    // --- Dispose ---
+    public void Dispose()
+    {
+        // Stop and dispose timers to prevent memory leaks and further callbacks
+        keyCheckTimer?.Stop();
+        keyCheckTimer?.Dispose();
+        keyCheckTimer = null;
+
+        messageCheckTimer?.Stop();
+        messageCheckTimer?.Dispose();
+        messageCheckTimer = null; 
+
+        Console.WriteLine("Chat component disposed, timers stopped.");
+    }
+}
