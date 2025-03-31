@@ -3,6 +3,7 @@ Secure Chat Mini Projekt
 Christian Bech Fruchard
 
 Project Beskrivelse
+Der er opsummering og screenshots i bunden.
 
 Jeg har brugt Blazor med lidt Javascript til at få nøglegenerering til at fungere.
 
@@ -89,6 +90,8 @@ Web Crypto API'ets AES-GCM dekrypteringsproces verificerer automatisk integritet
 Hvis cifferteksten er blevet manipuleret, eller hvis den forkerte nøgle/IV blev brugt, vil decrypt-funktionen fejle og throw en exception. Applikationen fanger denne fejl (JSException) og kasserer beskeden hvilket sikrer integritet.
 
 Hvis dekrypteringen lykkes, returneres den oprindelige klartekst, hvilket sikrer confidentiality.
+
+
 
 Opsummering:
 Applikationen bruger RSA (via JS Interop) til sikker nøgleudveksling og AES-GCM (via JS Interop) til fortrolig og integritetsbeskyttet beskedoverførsel.
