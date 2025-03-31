@@ -97,7 +97,15 @@ Opsummering:
 Applikationen bruger RSA (via JS Interop) til sikker nøgleudveksling og AES-GCM (via JS Interop) til fortrolig og integritetsbeskyttet beskedoverførsel.
 
 Screenshots
-*   Screenshot of the initial chat interface before session establishment.
-*   Screenshot showing the manual public key exchange step.
-*   Screenshot showing the session established status.
-*   Screenshot of an ongoing chat conversation with messages visible.
+Billede 1: JWK nøgle fra bruger 2 -> Set their key
+![image](https://github.com/user-attachments/assets/aa49f25d-ed98-4a67-b1c3-2a42d7e9c4e7)
+
+Billede 2: Billede 1 resultat
+![image](https://github.com/user-attachments/assets/54877668-8c73-45d5-a596-cfb2e0fbf734)
+
+Billede 3: Efter klik på initiate session fra bruger 1, Nøgle sendt til bruger 2 + "Shared Secret" Established som initiator (reciever hos bruger 2)
+![image](https://github.com/user-attachments/assets/3d359aae-1516-4651-a43e-ffb7794b197b)
+
+Billede 4 + 5: Bruger 1 har sendt besked, bruger 2 har modtaget og sendt tilbage
+![image](https://github.com/user-attachments/assets/91a83994-b58a-454b-864c-6347774e05bb)
+![image](https://github.com/user-attachments/assets/d0ee621f-e573-4631-a689-53e658095a37)
